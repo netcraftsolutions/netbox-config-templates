@@ -1,0 +1,1 @@
+# netbox-config-templates
