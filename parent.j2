@@ -1,2 +1,7 @@
 hostname {{ device.name }}
 {{ extras.ConfigTemplate.objects.get(name="base").render() }}
+{{ extras.ConfigTemplate.objects.get(name="base_aaa").render() }}
+{{ extras.ConfigTemplate.objects.get(name="base_syslog").render() }}
+{{ extras.ConfigTemplate.objects.get(name="base_ntp").render() }}
+!
+end
