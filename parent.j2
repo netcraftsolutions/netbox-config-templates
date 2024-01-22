@@ -1,2 +1,2 @@
 hostname {{ device.name }}
-{% include base.j2 %}
+{{ extras.ConfigTemplate.objects.get(name="base").render() }}
