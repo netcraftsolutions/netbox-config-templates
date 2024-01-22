@@ -1,4 +1,4 @@
-hostname test_device
+hostname {{ device.name }}
 !
 {% include 'config-templates/common/base_aaa.j2' %}
 !
