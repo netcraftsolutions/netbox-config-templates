@@ -1,4 +1,8 @@
 hostname {{ device.name }}
+{% for ntp_server in ntp_servers %}
+test ntp server {{ ntp_server }}
+{% endfor %}
+
 {{ extras.ConfigTemplate.objects.get(name="base_aaa").render() }}
 {{ extras.ConfigTemplate.objects.get(name="base_syslog").render() }}
 {{ extras.ConfigTemplate.objects.get(name="base_ntp").render() }}
