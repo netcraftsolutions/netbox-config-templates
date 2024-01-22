@@ -1,9 +1,9 @@
 {
-    "ntp-servers": [
+    "ntp_servers": [
         "172.16.10.22",
         "172.16.10.33"
     ],
-    "syslog-servers": [
+    "syslog_servers": [
         "192.168.43.107"
     ]
 }
