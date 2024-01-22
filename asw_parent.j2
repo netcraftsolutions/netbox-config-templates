@@ -1,4 +1,5 @@
 hostname {{ device.name }}
-{%- include common/child_aaa.j2 -%}
-{%- include common/child_syslog.j2 -%}
+{%- include common/child_aaa -%}
+{%- include common/child_syslog -%}
+{%- include common/child_ntp -%}
 end
