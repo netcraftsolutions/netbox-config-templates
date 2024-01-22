@@ -4,7 +4,7 @@ test ntp server {{ ntp_server }}
 {% endfor %}
 
 {{ extras.ConfigTemplate.objects.get(name="base_aaa").render() }}
-{{ extras.ConfigTemplate.objects.get(name="base_syslog").render(syslog_servers) }}
-{{ extras.ConfigTemplate.objects.get(name="base_ntp").render(ntp_servers) }}
+{{ extras.ConfigTemplate.objects.get(name="base_syslog").render({{ syslog_servers }}) }}
+{{ extras.ConfigTemplate.objects.get(name="base_ntp").render({{ ntp_servers }} ) }}
 !
 end
