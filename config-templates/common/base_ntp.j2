@@ -1,3 +1,7 @@
+ntp access-group peer NTP-ACL
+ntp access-group serve DENY-ANY
+ntp access-group serve-only DENY-ANY
+ntp access-group query-only DENY-ANY
 {% for ntp_server in ntp_servers %}
 ntp server {{ ntp_server }}
 {% endfor %}
