@@ -12,7 +12,6 @@ interface {{ interface.name }}
 {%- elif interface.mode == "tagged" %} 
  switchport mode trunk 
  switchport trunk allowed vlan {{ interface.tagged_vlans.all() | join('.') }}
-{%- endfor %}
 {%- elif "tagged-all" in interface.mode %}
  switchport mode trunk 
  switchport trunk allowed vlan all
