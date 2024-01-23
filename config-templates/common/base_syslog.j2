@@ -1,6 +1,6 @@
 logging trap debugging
 logging facility local6
-logging source-interface {{ }}
+logging source-interface Vlan100
 {% for syslog_server in syslog_servers %}
 logging host {{ syslog_server }}
 {% endfor %}
