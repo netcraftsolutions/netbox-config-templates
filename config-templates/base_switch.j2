@@ -4,6 +4,8 @@ hostname {{ device.name }}
 !
 {% include 'config-templates/common/base_aaa.j2' %}
 !
+{% include 'config-templates/common/interfaces.j2' %}
+!
 {% include 'config-templates/common/base_syslog.j2' %}
 !
 {% include 'config-templates/common/base_banners.j2' %}

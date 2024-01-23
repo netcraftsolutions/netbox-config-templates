@@ -1,3 +1,5 @@
+vlan internal allocation policy ascending
+!
 {% for vlan in device.site.vlans.all() %}
 vlan {{ vlan.vid }}
  name {{ vlan.name }}
