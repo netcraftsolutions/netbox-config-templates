@@ -5,14 +5,13 @@ interface {{ interface.name }}
  shutdown 
 {% elif interface.enabled == true %}
  no shutdown 
-{% endif %}
+{%- endif %}
 {%- if interface.mode == "access" %}
  switchport mode access
  switchport access vlan {{ interface.untagged_vlan.vid }} 
 {%- elif interface.mode == "tagged" %} 
  switchport mode trunk 
-{%- for vlan in interface.tagged_vlans.all() %} 
- switchport trunk allowed vlan add {{ vlan.vid }} 
+ switchport trunk allowed vlan {%- for vlan in interface.tagged_vlans.all() %} {{ vlan }},{% endfor %}
 {%- endfor %}
 {%- elif "tagged-all" in interface.mode %}
  switchport mode trunk switchport trunk allowed vlan all
