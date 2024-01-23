@@ -13,6 +13,7 @@ interface {{ interface.name }}
  switchport mode trunk 
 {% if interface.untagged_vlan.vid != 1 %}
  switchport trunk native vlan {{ interface.untagged_vlan.vid }} 
+{% endif %}
 {% set vlanlist = [] %}{% for vlan in interface.tagged_vlans.all() %}{{ vlanlist.append(vlan.vid) or "" }}{% endfor %}
 {% set normalized_vlan = vlanlist | vlan_parser %}
  switchport trunk allowed vlan {{ normalized_vlan[0] }}
@@ -22,7 +23,8 @@ switchport trunk allowed vlan add {{ list }}
 {% elif "tagged-all" in interface.mode %}
  switchport mode trunk
 {% if interface.untagged_vlan.vid != 1 %}
- switchport trunk native vlan {{ interface.untagged_vlan.vid }} 
+ switchport trunk native vlan {{ interface.untagged_vlan.vid }}
+{% endif %}
  switchport trunk allowed vlan all
 {% else %}
 {% if interface.lag != None %}
