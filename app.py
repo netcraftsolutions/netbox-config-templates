@@ -1,5 +1,6 @@
 import json
 from jinja2 import Environment, FileSystemLoader
+from ansible_collections.ansible.netcommon import vlan_parser 
 
 with open('config-contexts/global.json') as f:
     config_context = json.load(f)
