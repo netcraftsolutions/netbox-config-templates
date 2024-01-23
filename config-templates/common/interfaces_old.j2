@@ -1,11 +1,7 @@
 {% for interface in device.interfaces.all() %}
-{% if interface.mgmt_only == false %}
+{%- if interface.mgmt_only == false %}
 interface {{ interface.name }} 
-{% if interface.enabled == false %}
- shutdown 
-{% elif interface.enabled == true %} 
- no shutdown 
-{% endif %} 
+{%- if interface.enabled == false %} shutdown {% elif interface.enabled == true %} no shutdown {% endif %} 
 {% if interface.mode == "access" %} 
  switchport mode access
  switchport access vlan {{ interface.untagged_vlan.vid }} 
