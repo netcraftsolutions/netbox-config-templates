@@ -9,14 +9,11 @@ interface {{ interface.name }}
 {%- if interface.mode == "access" %}
  switchport mode access
  switchport access vlan {{ interface.untagged_vlan.vid }} 
-{%- elif interface.mode == "tagged" %} 
+{%- elif interface.mode == "tagged" %}
  switchport mode trunk 
-{%- set vlanlist = [] -%}{%- for vlan in interface.tagged_vlans.all() -%}{{- vlanlist.append(vlan.vid) or "" -}}{%- endfor -%}
-{%- set normalized_vlan = vlanlist | vlan_parser -%}
+{%- set vlanlist = [] -%}{%- for vlan in interface.tagged_vlans.all() -%}{{ vlanlist.append(vlan.vid) or "" }}{%- endfor -%}
+{%- set normalized_vlan = {{ vlanlist | vlan_parser }} -%}{%- for record in vlanlist -%}{{ normalized_vlan.append(record) or "" }}{%- endfor -%}
  switchport trunk allowed vlan {{ normalized_vlan[0] }}
-{%- for list in normalized_vlan[1::] -%}
-switchport trunk allowed vlan add {{ list }}
-{%- endfor -%}
 {%- elif "tagged-all" in interface.mode %}
  switchport mode trunk 
  switchport trunk allowed vlan all

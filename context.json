@@ -1,0 +1,60 @@
+{
+    "interfaces": [{
+        "name": "Gi0/0",
+        "tagged_vlans": [
+            {
+                "name": "Vlan1",
+                "vid": "1"
+            },
+            {
+                "name": "Vlan4",
+                "vid": "4"
+            },
+            {
+                "name": "Vlan8",
+                "vid": "5"
+            },
+            {
+                "name": "Vlan10",
+                "vid": "10"
+            },
+            {
+                "name": "Vlan11",
+                "vid": "11"
+            },
+            {
+                "name": "Vlan12",
+                "vid": "12"
+            }
+        ]        
+    },{
+        "name": "Gi0/1",
+        "tagged_vlans": [
+            {
+                "name": "Vlan1",
+                "vid": "1"
+            },
+            {
+                "name": "Vlan4",
+                "vid": "4"
+            },
+            {
+                "name": "Vlan8",
+                "vid": "5"
+            },
+            {
+                "name": "Vlan10",
+                "vid": "10"
+            },
+            {
+                "name": "Vlan11",
+                "vid": "11"
+            },
+            {
+                "name": "Vlan12",
+                "vid": "12"
+            }
+        ]        
+    }
+]
+}
