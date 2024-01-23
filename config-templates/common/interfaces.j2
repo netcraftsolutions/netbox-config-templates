@@ -14,9 +14,9 @@ interface {{ interface.name }}
 {% set vlanlist = [] %}{% for vlan in interface.tagged_vlans.all() %}{{ vlanlist.append(vlan.vid) or "" }}{% endfor %}
 {% set normalized_vlan = vlanlist | vlan_parser %}
  switchport trunk allowed vlan {{ normalized_vlan[0] }}
-{% for list in normalized_vlan[1::] %}
+{% for list in normalized_vlan[1::] -%}
 switchport trunk allowed vlan add {{ list }}
-{% endfor %}
+{%- endfor %}
 {% elif "tagged-all" in interface.mode %}
  switchport mode trunk 
  switchport trunk allowed vlan all
